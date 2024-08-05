@@ -1,0 +1,285 @@
+{% extends "home/header.html" %}
+{% load static %}
+{% block content %}
+
+<head>
+<!-- Plotly.js -->
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+	<script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+
+</head>
+
+<body>
+
+	<div class="jumbotron text-center" style="background-image:linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, .7)), url({% static 'stats_img.jpg' %}); background-size: cover;">
+        <h1>Statistics</h1> 
+        <p class="slideanim">Take a glimpse at the Company's Stocks</p> 
+    </div>
+
+	<h4 style="text-align: center;"><u>Stock Statistics</u></h4>
+	<p style="text-align: center;">(Click on column header to rearrange columns)</p>
+
+	<div id="graph" style="width: 95%; height: 475px;"></div>
+
+	<script>
+		var values = [
+			[{% for stat in statistics %}
+				'{{ stat.name }}',
+			{% endfor %}],
+			[{% for stat in statistics %}
+				'{{ stat.identifier }}',
+			{% endfor %}],
+			[{% for stat in statistics %}
+				'{{ stat.profit }}',
+			{% endfor %}],
+			[{% for stat in statistics %}
+				'{{ stat.ticker }}',
+			{% endfor %}],
+			[{% for stat in statistics %}
+				'{{ stat.per_share_price }}',
+			{% endfor %}],
+			[{% for stat in statistics %}
+				'{{ stat.number_of_shares }}',
+			{% endfor %}],
+			[{% for stat in statistics %}
+				'{{ stat.high }}',
+			{% endfor %}],
+			[{% for stat in statistics %}
+				'{{ stat.low }}',
+			{% endfor %}],
+			[{% for stat in statistics %}
+				'{{ stat.dividend_yield }}',
+			{% endfor %}],
+			[{% for stat in statistics %}
+				'{{ stat.day_high }}',
+			{% endfor %}],
+			[{% for stat in statistics %}
+				'{{ stat.day_low }}',
+			{% endfor %}],
+			[{% for stat in statistics %}
+				'{{ stat.day_close }}',
+			{% endfor %}],
+			[{% for stat in statistics %}
+				'{{ stat.book_value }}',
+			{% endfor %}],
+		]
+
+		var data = [{
+			type: 'table',
+			header: {
+				values: [["<b>Company Name</b>"], ["<b>Company ID</b>"], ["<b>Annual Revenue</b>"], ["<b>Ticker</b>"], ["<b>Per Share Price</b>"], ["<b>Shares Available</b>"], ["<b>52W High</b>"], ["<b>52W Low</b>"], ["<b>Dividend Yield</b>"], ["<b>Day High</b>"], ["<b>Day Low</b>"], ["<b>Day Close</b>"], ["<b>Book Value</b>"]],
+				align: ["left", "center"],
+				height: 40,
+				line: {width: 2, color: '#506784'},
+				fill: {color: '#00acc1'},
+				font: {family: "Arial", size: 14, color: "white"}
+			},
+			cells: {
+				values: values,
+				align: ["left", "center"],
+				height: 35,
+				line: {color: "#506784", width: 2},
+				fill: {color: ['#ffffff', 'white']},
+				font: {family: "Arial", size: 14, color: ["#000000"]} 
+			}
+		}]
+	Plotly.plot('graph', data, {}, {showSendToCloud: true});
+	</script>
+
+	<h4 style="text-align: center; font-size: 23; color: #000000;"><u>Revenue Statistics</u></h4>
+	<p style="text-align: center; font-size: 17;">Past Year Revenue Statistics</p>
+
+	<br>
+
+	<table align="center" border="2px;" style="width: 90%; border-color: #000000; color: #000000;">
+    	<tr>
+    		<th>Company Name</th>
+    		<th>January</th>
+    		<th>Febuary</th>
+    		<th>March</th>
+    		<th>April</th>
+    		<th>May</th>
+    		<th>June</th>
+    		<th>July</th>
+    		<th>August</th>
+    		<th>September</th>
+    		<th>October</th>
+    		<th>November</th>
+    		<th>December</th>
+    	</tr>
+    	{% for r in revenues %}
+		   	<tr>
+		   	  	<td>{{ r.name }}</td>
+		   		<td>{{ r.january }}</td>
+		   		<td>{{ r.febuary }}</td>
+		   		<td>{{ r.march }}</td>
+		   		<td>{{ r.april }}</td>
+		   		<td>{{ r.may }}</td>
+		   		<td>{{ r.june }}</td>
+		  		<td>{{ r.july }}</td>
+		   		<td>{{ r.august }}</td>
+		   		<td>{{ r.september }}</td>
+		   		<td>{{ r.october }}</td>
+		   		<td>{{ r.november }}</td>
+		   		<td>{{ r.december }}</td>
+		   	</tr>
+    	{% endfor %}
+    </table>
+
+    <br><br>
+
+    <div id="chart-container">FusionCharts XT will load here!</div>
+
+	<script type="text/javascript">
+		FusionCharts.ready(function(){
+			var chartObj = new FusionCharts({
+				type: 'msline',
+				renderAt: 'chart-container',
+				width: '100%',
+				height: '500',
+				dataFormat: 'json',
+				dataSource: {
+					"chart": {
+						"theme": "fusion",
+						"caption": "Revenue Trends",
+						"subCaption": "2018 Statistics",
+						"xAxisName": "Month",
+						"yAxisName": "Revenue"
+					},
+					"categories": [{
+						"category": [{
+							"label": "January"
+						}, {
+			                "label": "Febuary"
+			            }, {
+			                "label": "March"
+			            },  {
+			                "label": "April"
+			            }, {
+			                "label": "May"
+			            }, {
+			                "label": "June"
+			            }, {
+			                "label": "July"
+			            }, {
+			                "label": "August"
+			            },  {
+			                "label": "September"
+			            }, {
+			                "label": "October"
+			            }, {
+			                "label": "November"
+			            }, {
+			                "label": "December"
+			            }]
+			        }],
+			        "dataset": [{
+			        	"seriesname": "APPLE",
+			        	"data": [
+			        	{% for r in revenues %}
+				    		{% if r.r_identifier == "101" %}
+					    		{ "value": "{{ r.january }}" },
+					    		{ "value": "{{ r.febuary }}" },
+					    		{ "value": "{{ r.march }}" },
+					    		{ "value": "{{ r.april }}" },
+					    		{ "value": "{{ r.may }}" },
+					    		{ "value": "{{ r.june }}" },
+					    		{ "value": "{{ r.july }}" },
+					    		{ "value": "{{ r.august }}" },
+					    		{ "value": "{{ r.september }}" },
+					    		{ "value": "{{ r.october }}" },
+					    		{ "value": "{{ r.november }}" },
+					    		{ "value": "{{ r.december }}" }
+					    	{% endif %}
+					    {% endfor %}]
+					}, {
+            			"seriesname": "SAMSUNG",
+		        		"data": [
+		        		{% for r in revenues %}
+					    	{% if r.r_identifier == "102" %}
+					    		{ "value": "{{ r.january }}" },
+					    		{ "value": "{{ r.febuary }}" },
+					    		{ "value": "{{ r.march }}" },
+					    		{ "value": "{{ r.april }}" },
+					    		{ "value": "{{ r.may }}" },
+					    		{ "value": "{{ r.june }}" },
+					    		{ "value": "{{ r.july }}" },
+					    		{ "value": "{{ r.august }}" },
+					    		{ "value": "{{ r.september }}" },
+					    		{ "value": "{{ r.october }}" },
+					    		{ "value": "{{ r.november }}" },
+					    		{ "value": "{{ r.december }}" }
+					    	{% endif %}
+					    {% endfor %}]
+			        },  {
+			            "seriesname": "OnePlus",
+					    "data": [
+					    {% for r in revenues %}
+						 	{% if r.r_identifier == "103" %}
+						   		{ "value": "{{ r.january }}" },
+						   		{ "value": "{{ r.febuary }}" },
+						   		{ "value": "{{ r.march }}" },
+						   		{ "value": "{{ r.april }}" },
+						   		{ "value": "{{ r.may }}" },
+						   		{ "value": "{{ r.june }}" },
+						   		{ "value": "{{ r.july }}" },
+						   		{ "value": "{{ r.august }}" },
+						   		{ "value": "{{ r.september }}" },
+						  		{ "value": "{{ r.october }}" },
+						   		{ "value": "{{ r.november }}" },
+						   		{ "value": "{{ r.december }}" }
+						   	{% endif %}
+						{% endfor %}]
+			        },  {
+            			"seriesname": "HP",
+		        		"data": [
+			        	{% for r in revenues %}
+					    	{% if r.r_identifier == "104" %}
+					    		{ "value": "{{ r.january }}" },
+					    		{ "value": "{{ r.febuary }}" },
+					    		{ "value": "{{ r.march }}" },
+					    		{ "value": "{{ r.april }}" },
+					    		{ "value": "{{ r.may }}" },
+					    		{ "value": "{{ r.june }}" },
+					    		{ "value": "{{ r.july }}" },
+					    		{ "value": "{{ r.august }}" },
+					    		{ "value": "{{ r.september }}" },
+					    		{ "value": "{{ r.october }}" },
+					    		{ "value": "{{ r.november }}" },
+					    		{ "value": "{{ r.december }}" }
+					    	{% endif %}
+					    {% endfor %}]
+	        		},  {
+            		"seriesname": "BOSE",
+            		"data": [
+            		{% for r in revenues %}
+				    	{% if r.r_identifier == "105" %}
+				    		{ "value": "{{ r.january }}" },
+				    		{ "value": "{{ r.febuary }}" },
+				    		{ "value": "{{ r.march }}" },
+				    		{ "value": "{{ r.april }}" },
+				    		{ "value": "{{ r.may }}" },
+				    		{ "value": "{{ r.june }}" },
+				    		{ "value": "{{ r.july }}" },
+				    		{ "value": "{{ r.august }}" },
+				    		{ "value": "{{ r.september }}" },
+				    		{ "value": "{{ r.october }}" },
+				    		{ "value": "{{ r.november }}" },
+				    		{ "value": "{{ r.december }}" }
+				    	{% endif %}
+				    {% endfor %}]
+				}],
+			}
+		});
+		chartObj.render();
+		});
+	</script>
+
+	<p style="text-align: center"><i>(All Values on this page are in USD and are updated till 09/10/2019)</i></p>
+
+    <br><br>
+    
+</body>
+
+{% endblock %}

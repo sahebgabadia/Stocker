@@ -1,0 +1,26 @@
+{% extends "home/header.html" %}
+{% load static %}
+{% block content %}
+<body>
+
+    <div class="jumbotron text-center" style="background-image:linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, .7)), url({% static 'login_img1.jpg' %}); background-size: cover;">
+        <h1>Login</h1> 
+        <p>Welcome Back</p> 
+    </div>
+
+    <h4 style="text-align: center;">Login Here!</h4>
+
+    <div class="container">
+      <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <br>
+        <button class="btn" type="submit">Login</button>
+      </form>
+      <br><br>
+      <p style="text-align: center;">----------------------------------------------OR----------------------------------------------</p>
+      <p style="text-align: center;"> Don't have an account? <a href="signup"><strong>Sign Up</strong></a> here!<p>
+    </div>
+    <br><br><br><br><br>
+</body>
+{% endblock %}

@@ -1,0 +1,319 @@
+{% extends "home/header.html" %}
+{% load static %}
+{% block content %}
+
+<head>
+<!-- team icon pack-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+    <style>
+.container {
+  position: relative;
+  width: 50%;
+  padding-right: 270px;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+<!-- for team icons-->
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+</style>
+
+
+</head>
+
+<body>
+    <div class="jumbotron text-center" style="background-image:linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, .7)), url({% static 'home_img.jpg' %}); background-size: cover;">
+        <h1>Stocker</h1>
+        <p class="slideanim">We'll Teach You How To Stalk ;)</p>
+    </div>
+
+<!-- Container (About Section) -->
+    <div id="about" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2 class="slideanim">About Stocker</h2><br>
+                <p class="slideanim">Stocker is an online platform which allows you to shop electronic products, and what makes it different is that the price keeps changing. We're not talking about discounts, our website gives you the opportunity to buy your desired products at a lower price! And this price is based purely on your luck. <br> We have 5 companies associated with us, Samsung, Apple, One Plus, Bose and HP. Each of these companies provides a variety of their products for you to choose from. Once you've chosen a product, you can compare it's original price with the current price and if it fits well, then grab it!</p>
+            </div>
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-signal logo slideanim"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-grey">
+        <div class="row">
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-globe logo slideanim"></span>
+            </div>
+            <div class="col-sm-8">
+                <h2 class="slideanim">Why Stocker</h2><br>
+                <p class="slideanim">Stocker give you an opportunity to save money on a variety of products without compromising quality. And the catch is that there's no catch. The price of the product that you're interested in, depends solely on the stock of the company that product belongs to. There's an algorithm that runs within Stocker, which produces a price as a by product of the stock of the company. So, the price is always changing, it may increase or decrease within minutes. Stocker keeps it interesting, if you think the current price is the  best bet then you better get it before it's too late!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container (Services Section) -->
+    <div id="services" class="container-fluid text-center">
+        <h2 class="slideanim">WHAT WE OFFER</h2>
+        <br>
+    <div class="row slideanim">
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-usd logo-small"></span>
+            <h4>COST</h4>
+            <p>Low costs depending on the company's stock price</p>
+        </div>
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-check logo-small"></span>
+            <h4>CERTIFIED</h4>
+            <p>100 % genuine products</p>
+        </div>
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-inbox logo-small"></span>
+            <h4>DELIVERY</h4>
+            <p>Guaranteed delivery in 3 business days</p>
+        </div>
+    </div>
+    <br><br>
+    <div class="row slideanim">
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-heart logo-small"></span>
+            <h4>LOVE</h4>
+            <p>Special discounts on birthdays</p>
+        </div>
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-refresh logo-small"></span>
+            <h4>RETURN</h4>
+            <p>Simple return policy</p>
+        </div>
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-globe logo-small"></span>
+            <h4>WORLDWIDE SHIPPING</h4>
+            <p>Products shipped to anywhere in the world</p>
+        </div>
+    </div>
+    </div>
+
+<!-- Container (Portfolio Section) -->
+    <div id="portfolio" class="container-fluid text-center bg-grey">
+        <h2 class="slideanim">Steps To Use Stocker</h2>
+        <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <h4>Step 1<br><span>Search for the product that you need to buy.</span></h4>
+                </div>
+                <div class="item">
+                    <h4>Step 2<br><span>Stalk the product as the price fluctuates according the Stock price of that company.</span></h4>
+                </div>
+                <div class="item">
+                    <h4>Step 3<br><span>Buy the product as and when the price seems the best.</span></h4>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Container (Pricing Section) -->
+    <div id="pricing" class="container-fluid">
+        <div class="text-center">
+            <h2 class="slideanim">Companies</h2>
+        </div>
+
+        <br>
+
+        <div class="row slideanim">
+            <div class="col-sm-4">
+                <p class="text-center" style="font-size: 23; color: #000000;"><strong>Samsung</strong></p><br>
+                <a href="#demo" data-toggle="collapse">
+                    <div align="middle">
+                        <img src="{% static 'samsung_logo.png' %}" class="img-circle person" alt="Random Name" width="255" height="255">
+                    </div>
+                </a>
+                <div id="demo" class="collapse">
+                    <p align="middle">Samsung is a South Korean multinational conglomerate headquartered in Samsung Town, Seoul. It comprises numerous products like smartphones, smarth wathes, Televisions, refridgerators, etc</p>
+                </div>
+            </div>  
+            <div class="col-sm-4">
+                <p class="text-center" style="font-size: 23; color: #000000;"><strong>Oneplus</strong></p><br>
+                <a href="#demo2" data-toggle="collapse">
+                    <div align="middle">
+                        <img src="{% static 'oneplus_logo.png' %}" class="img-circle person" alt="Random Name" width="255" height="255">
+                    </div>
+                </a>
+                <div id="demo2" class="collapse">
+                    <p align="middle">OnePlus is based in Shenzhen, Guangdong. The company officially serves 34 countries and regions around the world as of July 2018.They have released numerous phones, amongst other products. They also have a tagline which is recognised almost everywhere, #neversettle</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <p class="text-center" style="font-size: 23; color: #000000;"><strong>HP</strong></p><br>
+                <a href="#demo3" data-toggle="collapse">
+                    <div align="middle">
+                        <img src="{% static 'hp_logo.png' %}" class="img-circle person" alt="Random Name" width="255" height="255">
+                    </div>
+                </a>
+                <div id="demo3" class="collapse">
+                    <p align="middle">The Hewlett-Packard Company was an American multinational information technology company headquartered in Palo Alto, California. It developed and provided a wide variety of hardware components as well as software and related services to consumers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row slideanim">
+            <div class="col-sm-6">
+                <p class="text-center" style="font-size: 23; color: #000000;"><strong>Bose</strong></p><br>
+                <a href="#demo4" data-toggle="collapse">
+                    <div align="middle">
+                        <img src="{% static 'bose_logo.png' %}" class="img-circle person" alt="Random Name" width="255" height="255">
+                    </div>
+                </a>
+                <div id="demo4" class="collapse">
+                    <p align="middle">Bose Corporation is a manufacturing company which predominantly sells audio equipment. The company is based in Framingham, Massachusetts. Bose is best known for its home audio systems and speakers, noise-cancelling headphones, professional audio products and automobile sound systems.</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <p class="text-center" style="font-size: 23; color: #000000;"><strong>Apple</strong></p><br>
+                <a href="#demo5" data-toggle="collapse">
+                    <div align="middle">
+                        <img src="{% static 'apple_logo.png' %}" class="img-circle person" alt="Random Name" width="255" height="255">
+                    </div>
+                </a>
+                <div id="demo5" class="collapse">
+                    <p align="middle">Apple Inc. is an American multinational technology company headquartered in Cupertino, California, that designs, develops, and sells consumer electronics, computer software, and online services. It is considered one of the Big Four tech companies along with Amazon, Google, and Facebook.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- Container (Contact Section) -->
+    <div id="contact" class="container-fluid bg-grey">
+        <h2 class="text-center">MEET THE TEAM</h2>
+        <div class="row slideanim">
+            <div class="col-sm-3" >
+                <div class="container" >
+                    <img src="{% static 'menita.jpg' %}" alt="Avatar" class="img-circle person" width="255" height="255">
+                    <div class="middle">
+                        <p style="color: #000000;"><b>Menita Agarwal</b></p>
+                        <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                        <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                        <a href="#" class="p-2"><span class="fa fa-linkedin"></span></a>
+                        <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>  
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="container">
+                    <img src="{% static 'varun.jpg' %}" alt="Avatar" class="img-circle person" width="255" height="255">
+                    <div class="middle">
+                        <p style="color: #000000;"><b>Varun Gupta</b></p>
+                        <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                        <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                        <a href="#" class="p-2"><span class="fa fa-linkedin"></span></a>
+                        <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>    
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="container">
+                    <img src="{% static 'saheb.png' %}" alt="Avatar" class="img-circle person" width="255" height="255">
+                    <div class="middle">
+                        <p style="color: #000000;"><b>Saheb Gabadia</b><p>
+                        <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                        <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                        <a href="#" class="p-2"><span class="fa fa-linkedin"></span></a>
+                        <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="container">
+                    <img src="{% static 'saloni.png' %}" alt="Avatar" class="img-circle person" width="255" height="255">
+                    <div class="middle">
+                        <p style="color: #000000;"><b>Saloni Halwai</b></p>
+                        <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                        <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                        <a href="#" class="p-2"><span class="fa fa-linkedin"></span></a>
+                        <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

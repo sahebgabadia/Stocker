@@ -1,0 +1,24 @@
+{% extends "home/header.html" %}
+{% load static %}
+{% block content %}
+<body>
+
+	<div class="jumbotron text-center" style="background-image:linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, .7)), url({% static 'signup_img.jpg' %}); background-size: cover;">
+        <h1 id="S1">Sign Up</h1> 
+        <p class="slideanim">Join the Stocker Community</p> 
+    </div>
+
+	<h4 style="text-align: center;"> Sign Up Here!</h4>
+
+	<div class="container">
+		<form method="POST">
+			{% csrf_token %}
+			{{form.as_p}}
+			<br>
+			<button class="btn" type="submit">Sign Up</button>
+		</form>
+	</div>
+
+</body>
+{% endblock %}
+            

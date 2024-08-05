@@ -1,0 +1,453 @@
+{% extends "home/header.html" %}
+{% load static %}
+{% block content %}
+
+<head>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<script>
+		window.onload = function () {
+
+		var dataPoints1 = [];
+		var dataPoints2 = [];
+		var dataPoints3 = [];
+		var dataPoints4 = [];
+		var dataPoints5 = [];
+		var dataPoints6 = [];
+		var dataPoints7 = [];
+		var dataPoints8 = [];
+		var dataPoints9 = [];
+		var dataPoints10 = [];
+		var dataPoints11 = [];
+		var dataPoints12 = [];
+
+		var chart = new CanvasJS.Chart("chartContainer", {
+			zoomEnabled: true,
+			axisY:{
+				prefix: "$",
+				includeZero: false
+			}, 
+			toolTip: {
+				shared: true
+			},
+			legend: {
+				cursor:"pointer",
+				verticalAlign: "top",
+				fontSize: 22,
+				fontColor: "dimGrey",
+				itemclick : toggleDataSeries
+			},
+			data: [{ 
+				type: "line",
+				xValueType: "dateTime",
+				yValueFormatString: "Rs####.00",
+				xValueFormatString: "hh:mm:ss TT",
+				showInLegend: true,
+				name: "OnePlus7",
+				dataPoints: dataPoints1
+			},
+			{				
+				type: "line",
+				xValueType: "dateTime",
+				yValueFormatString: "Rs####.00",
+				showInLegend: true,
+				name: "One Plus 7 Pro" ,
+				dataPoints: dataPoints2
+			},
+			{				
+				type: "line",
+				xValueType: "dateTime",
+				yValueFormatString: "Rs####.00",
+				showInLegend: true,
+				name: "OnePlus Power Adapter" ,
+				dataPoints: dataPoints3
+			},
+			{				
+				type: "line",
+				xValueType: "dateTime",
+				yValueFormatString: "Rs####.00",
+				showInLegend: true,
+				name: "OnePlus Cable" ,
+				dataPoints: dataPoints4
+			},
+			{				
+				type: "line",
+				xValueType: "dateTime",
+				yValueFormatString: "Rs####.00",
+				showInLegend: true,
+				name: "Samsung S10+" ,
+				dataPoints: dataPoints5
+			},
+			{ 
+				type: "line",
+				xValueType: "dateTime",
+				yValueFormatString: "Rs####.00",
+				xValueFormatString: "hh:mm:ss TT",
+				showInLegend: true,
+				name: "Galaxy Watch",
+				dataPoints: dataPoints6
+			},
+			{				
+				type: "line",
+				xValueType: "dateTime",
+				yValueFormatString: "Rs####.00",
+				showInLegend: true,
+				name: "HP ENVY" ,
+				dataPoints: dataPoints7
+			},
+			{				
+				type: "line",
+				xValueType: "dateTime",
+				yValueFormatString: "Rs####.00",
+				showInLegend: true,
+				name: "HP Pavilion" ,
+				dataPoints: dataPoints8
+			},
+			{				
+				type: "line",
+				xValueType: "dateTime",
+				yValueFormatString: "Rs####.00",
+				showInLegend: true,
+				name: "Bose Speaker" ,
+				dataPoints: dataPoints9
+			},
+			{				
+				type: "line",
+				xValueType: "dateTime",
+				yValueFormatString: "Rs####.00",
+				showInLegend: true,
+				name: "Bose Headphones" ,
+				dataPoints: dataPoints10
+			},
+			{ 
+				type: "line",
+				xValueType: "dateTime",
+				yValueFormatString: "Rs####.00",
+				xValueFormatString: "hh:mm:ss TT",
+				showInLegend: true,
+				name: "MacBook Air",
+				dataPoints: dataPoints11
+			},
+			{				
+				type: "line",
+				xValueType: "dateTime",
+				yValueFormatString: "Rs####.00",
+				showInLegend: true,
+				name: "Ipad Air" ,
+				dataPoints: dataPoints12
+			}]
+		});
+
+		function toggleDataSeries(e) {
+			if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+				e.dataSeries.visible = false;
+			}
+			else {
+				e.dataSeries.visible = true;
+			}
+			chart.render();
+		}
+
+		var updateInterval = 3000;
+		// initial value
+		var yValue1 = 732; 
+		var yValue2 = 734;
+		var yValue3 = 736;
+		var yValue4 = 738;
+		var yValue5 = 740;
+		var yValue6 = 742; 
+		var yValue7 = 744;
+		var yValue8 = 746;
+		var yValue9 = 748;
+		var yValue10 = 750;
+		var yValue11 = 752; 
+		var yValue12 = 754;
+
+		var time = new Date;
+		// starting at 9.30 am
+		time.setHours(9);
+		time.setMinutes(30);
+		time.setSeconds(00);
+		time.setMilliseconds(00);
+
+		function updateChart(count) {
+			count = count || 1;
+			var deltaY1, deltaY2, deltaY3, deltaY4, deltaY5, deltaY6, deltaY7, deltaY8, deltaY9, deltaY10, deltaY11, deltaY12;
+			for (var i = 0; i < count; i++) {
+				time.setTime(time.getTime()+ updateInterval);
+				deltaY1 = .5 + Math.random() *(-.5-.5);
+				deltaY2 = .5 + Math.random() *(-.5-.5);
+				deltaY3 = .5 + Math.random() *(-.5-.5);
+				deltaY4 = .5 + Math.random() *(-.5-.5);
+				deltaY5 = .5 + Math.random() *(-.5-.5);
+				deltaY6 = .5 + Math.random() *(-.5-.5);
+				deltaY7 = .5 + Math.random() *(-.5-.5);
+				deltaY8 = .5 + Math.random() *(-.5-.5);
+				deltaY9 = .5 + Math.random() *(-.5-.5);
+				deltaY10 = .5 + Math.random() *(-.5-.5);
+				deltaY11 = .5 + Math.random() *(-.5-.5);
+				deltaY12 = .5 + Math.random() *(-.5-.5);
+
+			// adding random value and rounding it to two digits. 
+			yValue1 = Math.round((yValue1 + deltaY1)*100)/100;
+			yValue2 = Math.round((yValue2 + deltaY2)*100)/100;
+			yValue3 = Math.round((yValue3 + deltaY3)*100)/100;
+			yValue4 = Math.round((yValue4 + deltaY4)*100)/100;
+			yValue5 = Math.round((yValue5 + deltaY5)*100)/100;
+			yValue6 = Math.round((yValue6 + deltaY6)*100)/100;
+			yValue7 = Math.round((yValue7 + deltaY7)*100)/100;
+			yValue8 = Math.round((yValue8 + deltaY8)*100)/100;
+			yValue9 = Math.round((yValue9 + deltaY9)*100)/100;
+			yValue10 = Math.round((yValue10 + deltaY10)*100)/100;
+			yValue11 = Math.round((yValue11 + deltaY11)*100)/100;
+			yValue12 = Math.round((yValue12 + deltaY12)*100)/100;
+			
+			// pushing the new values
+			dataPoints1.push({
+				x: time.getTime(),
+				y: yValue1
+			});
+			dataPoints2.push({
+				x: time.getTime(),
+				y: yValue2
+			});
+			dataPoints3.push({
+				x: time.getTime(),
+				y: yValue3
+			});
+			dataPoints4.push({
+				x: time.getTime(),
+				y: yValue4
+			});
+			dataPoints5.push({
+				x: time.getTime(),
+				y: yValue5
+			});
+			dataPoints6.push({
+				x: time.getTime(),
+				y: yValue6
+			});
+			dataPoints7.push({
+				x: time.getTime(),
+				y: yValue7
+			});
+			dataPoints8.push({
+				x: time.getTime(),
+				y: yValue8
+			});
+			dataPoints9.push({
+				x: time.getTime(),
+				y: yValue9
+			});
+			dataPoints10.push({
+				x: time.getTime(),
+				y: yValue10
+			});
+			dataPoints11.push({
+				x: time.getTime(),
+				y: yValue11
+			});
+			dataPoints12.push({
+				x: time.getTime(),
+				y: yValue12
+			});
+			}
+
+			// updating legend text with  updated with y Value 
+			chart.options.data[0].legendText = "OnePlus7 Rs " + yValue1;
+			chart.options.data[1].legendText = "One Plus 7 Pro Rs " + yValue2;
+			chart.options.data[2].legendText = "OnePlus Power Adapter Rs " + yValue3; 
+			chart.options.data[3].legendText = "OnePlus Cable Rs " + yValue4; 
+			chart.options.data[4].legendText = "Samsung S10+ Rs " + yValue5;
+			chart.options.data[5].legendText = "Galaxy Watch Rs " + yValue6;
+			chart.options.data[6].legendText = "HP ENVY Rs " + yValue7;
+			chart.options.data[7].legendText = "HP Pavilion Rs " + yValue8; 
+			chart.options.data[8].legendText = "Bose Speaker Rs " + yValue9; 
+			chart.options.data[9].legendText = "Bose Headphones Rs " + yValue10;
+			chart.options.data[10].legendText = "MacBook Air Rs " + yValue11;
+			chart.options.data[11].legendText = "Ipad Air Rs " + yValue12;
+			chart.render();
+		}
+		// generates first set of dataPoints 
+		updateChart(100);	
+		setInterval(function(){updateChart()}, updateInterval);
+
+		}
+	</script>
+
+	<!-- PRODUCT TABLE STYLING -->	
+	<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+</head>
+
+<body>
+
+	<div class="jumbotron text-center" style="background-image:linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, .7)), url({% static 'stats_img.jpg' %}); background-size: cover;">
+        <h1>Transactions</h1> 
+        <p class="slideanim">Search for the unique prices and buy the products intantaneously</p> 
+    </div>
+
+	<h4 style="text-align: center;"><u>Stock Price Fluctuation</u></h4>
+	
+	<br>	
+
+	<div id="chartContainer" style="height: 450px; width: 100%;"></div>
+
+	<br><br><br>
+
+    <table id="customers">
+	  <tr>
+	    <th>Product Name</th>
+	    <th>Cost Price</th>
+	    <th width="20">Buy</th>
+	  </tr>
+	  <tr>
+	    <td>OnePlus 7</td>
+	    <td>Rs. 48,999</td>
+	    <td width="20"><button class="btn btn-primary" onclick="myFunction()">Confirm Purchase</button></td>
+		<script>
+		function myFunction() {
+  		alert("You have successfully bought the product. Thankyou for using Stocker!");
+		}
+		</script>
+	  </tr>
+	  <tr>
+	    <td>OnePlus 7 Pro</td>
+	    <td>Rs. 32,999</td>
+		<td width="20"><button class="btn btn-primary" onclick="myFunction()">Confirm Purchase</button></td>
+		<script>
+		function myFunction() {
+  		alert("You have successfully bought the product. Thankyou for using Stocker!");
+		}
+		</script>
+	  </tr>
+	  <tr>
+	    <td>OnePlus Power Adapter</td>
+	    <td>Rs. 1,490</td>
+	    <td width="20"><button class="btn btn-primary" onclick="myFunction()">Confirm Purchase</button></td>
+		<script>
+		function myFunction() {
+  		alert("You have successfully bought the product. Thankyou for using Stocker!");
+		}
+		</script>
+	  </tr>
+	  <tr>
+	    <td>OnePlus Type-C Cable (150 cm)</td>
+	    <td>Rs. 1,099</td>
+	    <td width="20"><button class="btn btn-primary" onclick="myFunction()">Confirm Purchase</button></td>
+		<script>
+		function myFunction() {
+  		alert("You have successfully bought the product. Thankyou for using Stocker!");
+		}
+		</script>
+	  </tr>
+	  <tr>
+	    <td>Samsung Note 10+</td>
+	    <td>Rs. 79,999</td>
+	    <td width="20"><button class="btn btn-primary" onclick="myFunction()">Confirm Purchase</button></td>
+		<script>
+		function myFunction() {
+  		alert("You have successfully bought the product. Thankyou for using Stocker!");
+		}
+		</script>
+	  </tr>
+	  <tr>
+	    <td>Galaxy Watch Active</td>
+	    <td>Rs. 19,990</td>
+	    <td width="20"><button class="btn btn-primary" onclick="myFunction()">Confirm Purchase</button></td>
+		<script>
+		function myFunction() {
+  		alert("You have successfully bought the product. Thankyou for using Stocker!");
+		}
+		</script>
+	  </tr>
+	  <tr>
+	    <td>HP ENVY x360 - 13</td>
+	    <td> Rs. 83,496</td>
+	    <td width="20"><button class="btn btn-primary" onclick="myFunction()">Confirm Purchase</button></td>
+		<script>
+		function myFunction() {
+  		alert("You have successfully bought the product. Thankyou for using Stocker!");
+		}
+		</script>
+	  </tr>
+	  <tr>
+	    <td>HP Gaming Pavilion - 15</td>
+	    <td>Rs. 103,241</td>
+	    <td width="20"><button class="btn btn-primary" onclick="myFunction()">Confirm Purchase</button></td>
+		<script>
+		function myFunction() {
+  		alert("You have successfully bought the product. Thankyou for using Stocker!");
+		}
+		</script>
+	  </tr>
+	  <tr>
+	    <td>Bose Home Speaker 500</td>
+	    <td>Rs. 39,000</td>
+	    <td width="20"><button class="btn btn-primary" onclick="myFunction()">Confirm Purchase</button></td>
+		<script>
+		function myFunction() {
+  		alert("You have successfully bought the product. Thankyou for using Stocker!");
+		}
+		</script>
+	  </tr>
+	  <tr>
+	    <td>Bose Headphones 700</td>
+	    <td>Rs. 34,500</td>
+	    <td width="20"><button class="btn btn-primary" onclick="myFunction()">Confirm Purchase</button></td>
+		<script>
+		function myFunction() {
+  		alert("You have successfully bought the product. Thankyou for using Stocker!");
+		}
+		</script>
+	  </tr>
+	  <tr>
+	    <td>MacBook Air</td>
+	    <td>Rs. 99,900</td>
+	    <td width="20"><button class="btn btn-primary" onclick="myFunction()">Confirm Purchase</button></td>
+		<script>
+		function myFunction() {
+  		alert("You have successfully bought the product. Thankyou for using Stocker!");
+		}
+		</script>
+	  </tr>
+	  <tr>
+	    <td>Ipad Air</td>
+	    <td>Rs. 44,900</td>
+	    <td width="20"><button class="btn btn-primary" onclick="myFunction()">Confirm Purchase</button></td>
+		<script>
+		function myFunction() {
+  		alert("You have successfully bought the product. Thankyou for using Stocker!");
+		}
+		</script>
+	  </tr>
+	</table>
+
+	<br><br><br>
+
+</body>
+
+
+{% endblock %}
